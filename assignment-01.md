@@ -12,35 +12,37 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
 1. (2 pts ea) **Asymptotic notation** (12 pts)
 
   - 1a. Is $2^{n+1} \in O(2^n)$? Why or why not? 
-.  
+.  Yes it is, because big-O notation a function f(n) is said to be O(g(n)) is there are positive constants c and k such that f(n) =< c x g(n) for all n >= k. To determine if there exists constants c and k such that 2^n + 1 <= c x 2^n for all n>=k you can rearrange it such that 1/2^n <= c-1. and if we choose c=2 we get a simplified expression 2^n + 1 <= 2^n+1, and since 2^n + 1 is always less than or equal to 2^n+1 for n >=1 the condition holds. 
 .  
 .  
 .  
 . 
   - 1b. Is $2^{2^n} \in O(2^n)$? Why or why not?     
-.  
-.  
-.  
-.  
+.  This is not true because by using the definition of big-O we get
+. 2^2n <= c x 2^n, which we can then reduce to
+.ln 2 x 2n <= ln c + ln2 x n
+.  2n<= ln c + n
+.  n <= ln c , this is wrong because there is no constant that can satisfy this inequality
 .  
   - 1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?    
-.  
+.  no because in order for this to be true there exists consts c and k such that: f(n) <= c x g(n) for all n >= k. We can check if this is true by evaluating the limit, if we do n^1.01/ log^2 n we can see that the fraction grows to infinity with a very large n value. Because the limit is equal to infinity it means that f(n) grows faster than g(n) which contradicts the Big-O requirement that f(n) should be boune dabove some constant multiple of g(n), so f(n) is not equal to O(g(n)). so this is not true. 
 .  
 .  
 .  
 
   - 1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?  
+.  Yes this is true because in order for this to be true there needs to exist positive constants c and k such that f(n) >= c x g(n) for all n>= k. This means for sufficiently large n, f(n) grows at least as far as g(n) up to a constant multiple. Since for succiefienctly large n, n^1.01 will be larger than some constant multiple of log2n so this statement is true.
 .  
 .  
 .  
-.  
-  - 1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?  
+  - 1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?
+  - The function square root of n grows polynomially and the function (log n) ^3 grows polylogarithmaically. if we exam the limits, the square root of n grows much aster than log^3 , since the ratio is not bounded we can conclude that it is impossible to find a constant c such that square root of n <= c (long n)^3 for all large n and that the statement is not true. 
 .  
 .  
 .  
 .  
   - 1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?  
-.  
+.  If we analyze the behavior using limits, the swuare root of n is larger than log n^3 in growth rate so the ratio will diverge into infinity. Because the ratio diverges, we can conclude that we can always find a constant c>0 such that the swuare root of n >= c(log n)^3 for a large n so we can conclude that this statement is true
 
 
 2. **SPARC to Python** (12 pts)
