@@ -64,7 +64,7 @@ $$
 
   - 2b. (6 pts) What does this function do, in your own words?  
 
-.  
+.  This code has different functions which help to compute Fibonacci numbers and find the longest consecutive sequence of a given number in the list. The foo(x) function calculates the recursive implementation of the Fibonacci sequence. The second part of the code finds the longest sequence of a number in a list, longest run does this iteratievely and longest run recusrive uses recursion which splits the list into two halves, calculates the longest seqeuence in each half and then combines the results. The result class is used to store information about these runs, keep track of the longest sequence and see if the list has the keys. 
 .  
 .  
 .  
@@ -108,7 +108,8 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
   - 3c. (7 pts) Next, implement a `longest_run_recursive`, a recursive, divide and conquer implementation. This is analogous to our implementation of `sum_list_recursive`. To do so, you will need to think about how to combine partial solutions from each recursive call. Make use of the provided class `Result`.   
 
   - 3d. (4 pts) What is the Work and Span of this sequential algorithm?  
-.  
+.  The work is the number of operations that the function performs. In the worst case, the function will perform n iterations for the loop and it will perform a constant number of operations for each iteration. The work is O(n) because the work has a linear trend.
+The Span of this function is the critical paths length which is the longest sequence of operations which are dependent and should be carried out chronologically. The critical path is the loop so the span is also o(n).
 .  
 .  
 .  
@@ -122,7 +123,9 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
 
 
   - 3e. (4 pts) Assume that we parallelize in a similar way we did with `sum_list_recursive`. That is, each recursive call spawns a new thread. What is the Work and Span of this algorithm?  
+Wirk here is O(nlog n) where n is how long the list is. The input list is recursively being divided in half and the algorithm is performing constant work.
 
+Span is O(log n) because the levels of recursion can work in parallel.
 .  
 .  
 .  
